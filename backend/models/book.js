@@ -11,7 +11,8 @@ const bookSchema = new mongoose.Schema({
     genres: [String],
     description: String,
     rating: Number,
-    reviews: [String]
+    reviews: [String],
+    coverImage: String
 });
 
 const Book = mongoose.model('Book', bookSchema);

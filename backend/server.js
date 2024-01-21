@@ -3,10 +3,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
-
+const cors = require('cors');
 // Utiliza body-parser para analizar las solicitudes JSON
 app.use(bodyParser.json());
-
+app.use(cors());
 // Importar el controlador
 const bookController = require('./controllers/bookController');
 const connectDB = require('./database');

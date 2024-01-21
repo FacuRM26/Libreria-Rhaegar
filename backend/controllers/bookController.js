@@ -26,7 +26,8 @@ const addBook = async (req, res) => {
         genres: req.body.genres,
         description: req.body.description,
         rating: req.body.rating,
-        reviews: req.body.reviews
+        reviews: req.body.reviews,
+        coverImage: req.body.coverImage
     });
     try {
         const newBook = await book.save();
@@ -59,6 +60,9 @@ const updateBook = async (req, res) => {
         }
         if (req.body.reviews) {
             book.reviews = req.body.reviews;
+        }
+        if(req.body.coverImage) {  
+            book.coverImage = req.body.coverImage;
         }
         await book.save();
         res.json(book);
