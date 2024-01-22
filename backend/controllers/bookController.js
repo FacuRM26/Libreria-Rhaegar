@@ -19,23 +19,26 @@ const getBooks = async (req, res) => {
 };
 
 const addBook = async (req, res) => {
+    console.log(req.body);
     const book = new Book({
-        title: req.body.title,
-        author: req.body.author,
-        pages: req.body.pages,
-        genres: req.body.genres,
-        description: req.body.description,
-        rating: req.body.rating,
-        reviews: req.body.reviews,
-        coverImage: req.body.coverImage
+      title: req.body.title,
+      author: req.body.author,
+      pages: req.body.pages,
+      genres: req.body.genres,
+      description: req.body.description,
+      rating: req.body.rating,
+      reviews: req.body.reviews,
+      coverImage: req.body.coverImage, // Utiliza la URL de la imagen
     });
+  
     try {
-        const newBook = await book.save();
-        res.status(201).json(newBook);
+      const newBook = await book.save();
+      res.status(201).json(newBook);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+      res.status(400).json({ message: error.message });
     }
-}
+  };
+  
 
 const updateBook = async (req, res) => {
     try {
@@ -94,6 +97,7 @@ const deleteBook = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
 
 
 module.exports = {
