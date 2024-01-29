@@ -1,6 +1,6 @@
 // addBook.js
 
-import React , { useEffect,useState } from 'react';
+import React , { useState } from 'react';
 import axios from 'axios';
 
 const AddBook = () => {
@@ -97,6 +97,10 @@ const AddBook = () => {
                 <input type="file" name="coverImage2" id="coverImage2" onChange={handleFileChange} />
                 <br />
                 <button type="submit">Agregar libro</button>
+                <br />
+                <button type="reset">Limpiar formulario</button>
+                <br />
+                <button type="button" onClick={() => { window.location.href = '/'; }}>Regresar</button>
             </form>
         </div>
     );

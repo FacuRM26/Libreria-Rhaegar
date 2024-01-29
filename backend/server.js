@@ -28,6 +28,7 @@ const connectDB = require('./database');
 
 // Rutas de los libros
 app.get('/api/books', bookController.getBooks);
+app.get('/api/books/:id', bookController.getBookbyId);
 app.post('/api/books', bookController.addBook);
 app.put('/api/books/:id', bookController.updateBook);
 app.delete('/api/books/:id', bookController.deleteBook);

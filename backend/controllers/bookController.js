@@ -28,7 +28,7 @@ const addBook = async (req, res) => {
       description: req.body.description,
       rating: req.body.rating,
       reviews: req.body.reviews,
-      coverImage: req.body.coverImage, // Utiliza la URL de la imagen
+      coverImage: req.body.coverImage,
     });
   
     try {
@@ -39,6 +39,14 @@ const addBook = async (req, res) => {
     }
   };
   
+const getBookbyId = async (req, res) => {
+    try {
+        const book = await Book.findById(req.params.id);
+        res.json(book);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 
 const updateBook = async (req, res) => {
     try {
@@ -103,6 +111,7 @@ const deleteBook = async (req, res) => {
 module.exports = {
     getBooks,
     addBook,
+    getBookbyId,
     updateBook,
     deleteBook
 };

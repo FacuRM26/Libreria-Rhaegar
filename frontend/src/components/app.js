@@ -23,9 +23,11 @@ const App = () => {
         <ul>
           {data.map(item => (
             <li key={item._id}>
-              <img src={item.coverImage} alt="Portada libro" />
-              <br></br>
-              {item.title} - {item.author}
+              <Link to={`/book/${item._id}`}>
+                <img src={item.coverImage} alt="Portada libro" />
+                <br />
+                {item.title} - {item.author}
+              </Link>
             </li>
           ))}
         </ul>
